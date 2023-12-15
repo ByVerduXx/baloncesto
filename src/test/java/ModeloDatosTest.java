@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class ModeloDatosTest {
+public class ModeloDatosTest {
 
     @Test
     void testExisteJugador() {
@@ -10,7 +10,7 @@ class ModeloDatosTest {
         ModeloDatos instance = new ModeloDatos();
         boolean expResult = false;
         boolean result = instance.existeJugador(nombre);
-        //assertEquals(expResult, result);
-        fail("Fallo forzado.");
+        assertEquals(expResult, result);
+        //fail("Fallo forzado.");
     }
 }
