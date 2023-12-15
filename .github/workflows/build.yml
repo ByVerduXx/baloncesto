@@ -9,7 +9,7 @@ jobs:
       - name: pruebas-unitarias
     run: echo "pruebas-unitarias"
       - name: empaquetar
-  run: echo "empaquetar"
+    run: echo "empaquetar"
 
   test:
     needs: build
