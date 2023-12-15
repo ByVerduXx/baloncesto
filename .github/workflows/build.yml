@@ -1,5 +1,4 @@
 name: CI
-
 on: push
 
 jobs:
@@ -7,27 +6,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pruebas-unitarias
-    run: echo "pruebas-unitarias"
+        run: echo "pruebas-unitarias"
       - name: empaquetar
-    run: echo "empaquetar"
-
+        run: echo "empaquetar"
   test:
     needs: build
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: pruebas-funcionales
-    run: echo "pruebas-funcionales"
-
+        run: echo "pruebas-funcionales"
   qa:
     needs: test
     runs-on: self-hosted
     steps:
       - name: calidad-codigo
-    run: echo "calidad-codigo"
-
+        run: echo "calidad-codigo"
   deploy:
     needs: qa
     runs-on: ubuntu-latest
     steps:
       - name: despliegue
-    run: echo "despliegue"
+        run: echo "despliegue"
