@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ModeloDatosTest {
 
     @Test
-    void testExisteJugador() {
+    public void testExisteJugador() {
         log.info("Prueba de existeJugador");
         String nombre = "";
         ModeloDatos instance = new ModeloDatos();
