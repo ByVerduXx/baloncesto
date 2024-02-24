@@ -5,11 +5,11 @@
          version="4.0">
     <servlet>
         <servlet-name>Acb</servlet-name>
-        <servlet-class>Acb</servlet-class>
+        <servlet-class>controller.Acb</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ResetVotos</servlet-name>
-        <servlet-class>ResetVotos</servlet-class>
+        <servlet-class>controller.ResetVotos</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Acb</servlet-name>
