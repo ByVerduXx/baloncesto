@@ -96,6 +96,7 @@ public class ModeloDatos {
     }
 
     public void resetVotos() {
+        log.info("Reseteando votos");
         try {
             set = con.createStatement();
             set.executeUpdate("UPDATE Jugadores SET votos=0");
@@ -125,11 +126,13 @@ public class ModeloDatos {
     }
 
     public List<Jugador> getJugadores() {
+        log.info("Obteniendo jugadores");
         List<Jugador> jugadores = new ArrayList<>();
         try {
             set = con.createStatement();
             rs = set.executeQuery("SELECT * FROM Jugadores");
             while (rs.next()) {
+                log.info("Jugador: " + rs.getString("nombre") + " Votos: " + rs.getInt("votos"));
                 jugadores.add(Jugador.builder().id(rs.getInt("id")).nombre(rs.getString("nombre"))
                         .votos(rs.getInt("votos")).build());
             }
