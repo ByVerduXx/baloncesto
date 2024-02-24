@@ -1,8 +1,11 @@
 package repository;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import lombok.extern.slf4j.Slf4j;
+import model.Jugador;
 
 @Slf4j
 public class ModeloDatos {
@@ -93,6 +96,7 @@ public class ModeloDatos {
     }
 
     public void resetVotos() {
+        log.info("Reseteando votos");
         try {
             set = con.createStatement();
             set.executeUpdate("UPDATE Jugadores SET votos=0");
@@ -119,6 +123,27 @@ public class ModeloDatos {
             log.error(ERROR_LOG + e.getMessage());
         }
         return votos;
+    }
+
+    public List<Jugador> getJugadores() {
+        log.info("Obteniendo jugadores");
+        List<Jugador> jugadores = new ArrayList<>();
+        try {
+            set = con.createStatement();
+            rs = set.executeQuery("SELECT * FROM Jugadores");
+            while (rs.next()) {
+                log.info("Jugador: " + rs.getString("nombre") + " Votos: " + rs.getInt("votos"));
+                jugadores.add(Jugador.builder().id(rs.getInt("id")).nombre(rs.getString("nombre"))
+                        .votos(rs.getInt("votos")).build());
+            }
+            rs.close();
+            set.close();
+
+        } catch (Exception e) {
+            log.error("No lee de la tabla");
+            log.error(ERROR_LOG + e.getMessage());
+        }
+        return jugadores;
     }
 
 }
