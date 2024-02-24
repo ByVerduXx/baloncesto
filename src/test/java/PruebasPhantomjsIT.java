@@ -69,7 +69,7 @@ class PruebasPhantomjsIT {
     @Test
     void voteOtherPlayerTest() {
         driver.navigate().to("http://localhost:8080/Baloncesto/");
-        driver.findElement(By.name("R4")).click(); // Otros
+        driver.findElements(By.name("R1")).get(3).click(); // Otros
         driver.findElement(By.name("txtOtros")).sendKeys("Verdu");
         driver.findElement(By.name("B1")).click(); // Votar
         driver.navigate().to("http://localhost:8080/Baloncesto/");

@@ -11,12 +11,11 @@
                 <th>Jugador</th>
                 <th>Votos</th>
             </tr>
-            <c:forEach var="voto" items="${votos}">
+            <c:forEach var="jugador" items="${votos}">
                 <tr>
-                    <td>${voto.nombre}</td>
-                    <td>${voto.votos}</td>
+                    <td>${jugador.nombre}</td>
+                    <td>${jugador.votos}</td>
                 </tr>
-            </c:forEach>
         </table>
         <br>
         <br>
