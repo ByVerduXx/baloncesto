@@ -19,4 +19,15 @@ class ModeloDatosTest {
         assertEquals(expResult, result);
         // fail("Fallo forzado.");
     }
+
+    @Test
+    void testActualizarJugador() {
+        log.info("Prueba de actualizarJugador");
+        String nombre = "Llull";
+        ModeloDatos instance = new ModeloDatos();
+        instance.actualizarJugador(nombre);
+        Integer expResult = 1;
+        Integer result = instance.getVotos(nombre); // he tenido que crear este método para poder hacer la prueba
+        assertEquals(expResult, result);
+    }
 }
