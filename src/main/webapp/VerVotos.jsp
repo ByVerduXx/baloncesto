@@ -11,9 +11,10 @@
     <body>
         <h1>Votos actuales</h1>
         <table>
+            <caption>Resumen de votos para jugadores</caption>
             <tr>
-                <th>Jugador</th>
-                <th>Votos</th>
+                <th scope="col">Jugador</th>
+                <th scope="col">Votos</th>
             </tr>
             <c:forEach var="jugador" items="${votos}">
                 <tr>
