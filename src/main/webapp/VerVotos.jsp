@@ -20,6 +20,7 @@
                     <td>${jugador.nombre}</td>
                     <td>${jugador.votos}</td>
                 </tr>
+            </c:forEach>
         </table>
         <br>
         <br>
