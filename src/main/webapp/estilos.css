@@ -11,3 +11,14 @@ body {
   text-align: left;
 }
  
+.titulo {
+  text-align: center;
+}
+
+hr {
+  margin-top: 20px;
+}
+
+.contenido {
+  font-size: 2em;
+}
