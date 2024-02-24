@@ -15,6 +15,8 @@ public class ModeloDatos {
     private ResultSet rs;
 
     private static final String ERROR_LOG = "El error es:";
+    private static final String VOTOS = "votos";
+    private static final String NO_LEE_DE_LA_TABLA = "No lee de la tabla";
 
     public void abrirConexion() {
 
@@ -55,7 +57,7 @@ public class ModeloDatos {
             set.close();
         } catch (Exception e) {
             // No lee de la tabla
-            log.error("No lee de la tabla");
+            log.error(NO_LEE_DE_LA_TABLA);
             log.error(ERROR_LOG + e.getMessage());
         }
         return (existe);
@@ -114,12 +116,12 @@ public class ModeloDatos {
             set = con.createStatement();
             rs = set.executeQuery("SELECT votos FROM Jugadores WHERE nombre " + " LIKE '%" + nombre + "%'");
             while (rs.next()) {
-                votos = rs.getInt("votos");
+                votos = rs.getInt(VOTOS);
             }
             rs.close();
             set.close();
         } catch (Exception e) {
-            log.error("No lee de la tabla");
+            log.error(NO_LEE_DE_LA_TABLA);
             log.error(ERROR_LOG + e.getMessage());
         }
         return votos;
@@ -132,15 +134,15 @@ public class ModeloDatos {
             set = con.createStatement();
             rs = set.executeQuery("SELECT * FROM Jugadores");
             while (rs.next()) {
-                log.info("Jugador: " + rs.getString("nombre") + " Votos: " + rs.getInt("votos"));
+                log.info("Jugador: " + rs.getString("nombre") + " Votos: " + rs.getInt(VOTOS));
                 jugadores.add(Jugador.builder().id(rs.getInt("id")).nombre(rs.getString("nombre"))
-                        .votos(rs.getInt("votos")).build());
+                        .votos(rs.getInt(VOTOS)).build());
             }
             rs.close();
             set.close();
 
         } catch (Exception e) {
-            log.error("No lee de la tabla");
+            log.error(NO_LEE_DE_LA_TABLA);
             log.error(ERROR_LOG + e.getMessage());
         }
         return jugadores;
