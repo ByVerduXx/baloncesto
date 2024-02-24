@@ -1,16 +1,21 @@
 import org.junit.jupiter.api.Test;
+
+import lombok.extern.slf4j.Slf4j;
+import repository.ModeloDatos;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ModeloDatosTest {
+@Slf4j
+class ModeloDatosTest {
 
     @Test
     void testExisteJugador() {
-        System.out.println("Prueba de existeJugador");
+        log.info("Prueba de existeJugador");
         String nombre = "";
         ModeloDatos instance = new ModeloDatos();
         boolean expResult = false;
         boolean result = instance.existeJugador(nombre);
         assertEquals(expResult, result);
-        //fail("Fallo forzado.");
+        // fail("Fallo forzado.");
     }
 }

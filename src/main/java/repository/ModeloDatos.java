@@ -1,10 +1,17 @@
+package repository;
+
 import java.sql.*;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class ModeloDatos {
 
     private Connection con;
     private Statement set;
     private ResultSet rs;
+
+    private final String errorLog = "El error es:";
 
     public void abrirConexion() {
 
@@ -23,8 +30,8 @@ public class ModeloDatos {
 
         } catch (Exception e) {
             // No se ha conectado
-            System.out.println("No se ha podido conectar");
-            System.out.println("El error es: " + e.getMessage());
+            log.error("No se ha podido conectar");
+            log.error(errorLog + e.getMessage());
         }
     }
 
@@ -45,8 +52,8 @@ public class ModeloDatos {
             set.close();
         } catch (Exception e) {
             // No lee de la tabla
-            System.out.println("No lee de la tabla");
-            System.out.println("El error es: " + e.getMessage());
+            log.error("No lee de la tabla");
+            log.error(errorLog + e.getMessage());
         }
         return (existe);
     }
@@ -59,8 +66,8 @@ public class ModeloDatos {
             set.close();
         } catch (Exception e) {
             // No modifica la tabla
-            System.out.println("No modifica la tabla");
-            System.out.println("El error es: " + e.getMessage());
+            log.error("No modifica la tabla");
+            log.error(errorLog + e.getMessage());
         }
     }
 
@@ -72,8 +79,8 @@ public class ModeloDatos {
             set.close();
         } catch (Exception e) {
             // No inserta en la tabla
-            System.out.println("No inserta en la tabla");
-            System.out.println("El error es: " + e.getMessage());
+            log.error("No inserta en la tabla");
+            log.error(errorLog + e.getMessage());
         }
     }
 
@@ -81,7 +88,7 @@ public class ModeloDatos {
         try {
             con.close();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            log.error(e.getMessage());
         }
     }
 
