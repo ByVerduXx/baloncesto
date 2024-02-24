@@ -11,6 +11,10 @@
         <servlet-name>ResetVotos</servlet-name>
         <servlet-class>controller.ResetVotos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VerVotos</servlet-name>
+        <servlet-class>controller.VerVotos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Acb</servlet-name>
         <url-pattern>/Acb</url-pattern>
@@ -18,6 +22,10 @@
     <servlet-mapping>
         <servlet-name>ResetVotos</servlet-name>
         <url-pattern>/ResetVotos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerVotos</servlet-name>
+        <url-pattern>/VerVotos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
