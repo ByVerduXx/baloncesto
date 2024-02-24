@@ -92,4 +92,33 @@ public class ModeloDatos {
         }
     }
 
+    public void resetVotos() {
+        try {
+            set = con.createStatement();
+            set.executeUpdate("UPDATE Jugadores SET votos=0");
+            rs.close();
+            set.close();
+        } catch (Exception e) {
+            log.error("No modifica la tabla");
+            log.error(ERROR_LOG + e.getMessage());
+        }
+    }
+
+    public Integer getVotos(String nombre) {
+        Integer votos = 0;
+        try {
+            set = con.createStatement();
+            rs = set.executeQuery("SELECT votos FROM Jugadores WHERE nombre " + " LIKE '%" + nombre + "%'");
+            while (rs.next()) {
+                votos = rs.getInt("votos");
+            }
+            rs.close();
+            set.close();
+        } catch (Exception e) {
+            log.error("No lee de la tabla");
+            log.error(ERROR_LOG + e.getMessage());
+        }
+        return votos;
+    }
+
 }
