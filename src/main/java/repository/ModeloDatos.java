@@ -11,7 +11,7 @@ public class ModeloDatos {
     private Statement set;
     private ResultSet rs;
 
-    private final String errorLog = "El error es:";
+    private static final String errorLog = "El error es:";
 
     public void abrirConexion() {
 
